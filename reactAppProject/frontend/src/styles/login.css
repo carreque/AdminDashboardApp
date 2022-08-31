@@ -1,0 +1,111 @@
+.loginInputs{
+
+    border-radius: 25px !important;
+}
+
+#rightBackGround{
+
+    background-color: whitesmoke;
+}
+
+#sendButtonLogin{
+
+    border-radius: 25px;
+    width: 40%;
+}
+
+@media (max-width: 760px){
+
+    #imageLoginContainer{
+
+        display: none;
+    }
+
+    #rightBackGround{
+
+        width: 100%  !important;
+        height: 60em !important;
+        padding: 15px;
+
+    }
+
+    .contentLogin{
+
+        margin-top: 46% !important;
+    }
+
+    .containerCard{
+
+        border-radius: 25px !important;
+    }
+
+}
+
+@media (min-width: 768px){
+
+    #imageLoginContainer{
+        height: 74em !important;
+    }
+
+    .contentLogin{
+
+        margin-top: 60% !important;
+        padding: 15px;
+    }
+
+    .containerCard{
+
+        border-radius: 25px !important;
+    }
+
+}
+
+@media (min-width: 912px){
+
+    #imageLoginContainer{
+        height: 87em !important;
+    }
+
+    .contentLogin{
+
+        margin-top: 100% !important;
+        padding: 15px;
+    }
+
+    .containerCard{
+
+        border-radius: 25px !important;
+    }
+
+}
+
+@media(min-width: 1024px){
+
+    #imageLoginContainer{
+        height: 40em !important;
+    }
+
+    .contentLogin{
+
+        margin-top: 20% !important;
+        padding: 15px;
+    }
+}
+@media(min-width:1057px){
+
+    
+    .contentLogin{
+    
+        margin-top: 25% !important;
+    }
+    .containerCard{
+    
+        border-radius: 25px !important;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    #imageLoginContainer{
+        height: 47em !important;
+    }
+}

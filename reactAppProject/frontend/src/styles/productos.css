@@ -1,0 +1,160 @@
+.homeProduct{
+
+    display: flex;
+    width: 100%;
+}
+
+.containerProduct{
+
+    flex: 6;
+}
+
+
+
+@media(max-width: 767px){
+
+    .buttonCreation{
+
+        border-radius: 25px !important;
+        margin: 5px !important;
+    }
+
+    .selectPages{
+
+        width: 40% !important;
+        height: 3em;
+        border-radius: 25px !important;
+    }
+
+    .boxModalProduct{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 700px !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+
+    .col-Product{
+
+        padding: 8px;
+        text-align: center;
+    }
+
+    #sendButtonModalProduct, #closeButtonModal{
+
+        border-radius: 25px;
+        width: 40%;
+    }
+}
+
+@media(min-width: 768px){
+
+    .buttonCreation{
+
+        border-radius: 25px !important;
+        margin: 5px !important;
+    }
+
+    .selectPages{
+
+        width: 40% !important;
+        height: 3em;
+        border-radius: 25px !important;
+    }
+
+    .boxModalProduct{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 550px;
+        height: 700px !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+
+    .col-Product{
+
+        padding: 8px;
+        text-align: center;
+    }
+
+    #sendButtonModalProduct, #closeButtonModal{
+
+        border-radius: 25px;
+        width: 40%;
+    }
+}
+@media(min-width: 1000px){
+
+    .buttonCreation{
+
+        border-radius: 25px !important;
+    }
+
+    .selectPages{
+
+        width: 50% !important;
+        border-radius: 25px !important;
+    }
+
+    .boxModalProduct{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 550px;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+}
+
+
+.buttonCategoryCreation{
+
+    border-radius: 25px !important;
+    width: 20%;
+}
+
+
+
+.modalInputsNewProduct{
+
+    border-radius: 25px !important;
+    /* width: 70% !important; */
+}
+
+#newCategoriaInput{
+
+    margin: 0 auto;
+}
+
+
+#precioBebida{
+
+    display: none !important;
+}
+
+#selectDeleteCategory{
+
+    margin: 0 auto !important;
+}

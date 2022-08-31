@@ -1,0 +1,84 @@
+.datatable{
+
+    height: 420px;
+    padding: 20px;
+}
+
+.datatable>:nth-child(1){
+
+    border-radius: 25px !important;
+}
+
+.cellWithImg{
+
+    display: flex;
+    align-items: center;
+}
+
+.cellImg{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.cellWithStatus{
+
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.positive{
+    background-color: rgba(0,128,0,0.05);
+    color: green;
+}
+
+.negative{
+    background-color: rgba(255,0,0,0.05);
+    color: red;
+}
+
+.modalInputsProducts{
+
+    border-radius: 25px !important;
+    width: 70;
+}
+
+#sendButtonModalProduct{
+
+    border-radius: 25px;
+    width: 25%;
+}
+
+.boxModalProduct{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 550px;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    box-Shadow: 24;
+    padding: 4px;
+    border-radius: 25px;
+}
+
+.swal-footer{
+
+    text-align: center !important;
+}
+
+.swal-button, .swal-modal{
+
+    border-radius: 25px;
+}
+
+.userInputs{
+
+    width: 70% !important;
+    border-radius: 25px !important;
+}

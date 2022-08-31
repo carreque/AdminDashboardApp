@@ -1,0 +1,32 @@
+
+@media(min-width: 1000px){
+
+    .chart{
+
+        width: 70%;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+        padding: 10px;
+        color: gray;
+        border-radius: 25px;
+    }
+}
+
+
+@media(max-width: 990px){
+
+    .chart{
+
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+        padding: 10px;
+        color: gray;
+        border-radius: 25px;
+        margin-top: 5%;
+    }
+}
+
+.titleChart{
+
+    margin-bottom: 20px;
+}

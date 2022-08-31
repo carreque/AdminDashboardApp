@@ -1,0 +1,162 @@
+
+@media(min-width: 1000px){
+
+    .featured{
+
+        width: 40%;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+        padding: 10px;
+        border-radius: 25px;
+    }
+}
+
+@media(max-width: 990px){
+
+    .featured{
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+        padding: 10px;
+        border-radius: 25px;
+    }
+}
+
+
+.topFeatured{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+}
+
+.titleFeatured{
+
+    font-size: 16px;
+    font-weight: 500px;
+}
+
+.bottom{
+
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.featuredCharts{
+
+    width: 100px;
+    height: 100px;
+}
+
+.titleDescription{
+
+    font-weight: 500px;
+    color: gray;
+}
+
+.amount{
+
+    font-size: 30px; 
+}
+
+.description{
+
+    font-weight: 300px;
+    font-size: 12px;
+    color: gray;
+}
+
+.summary{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item{
+
+    text-align: center;
+}
+
+.itemTitle{
+
+    font-size: 14px;
+    color: gray;
+}
+
+.itemResult{
+
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.positive{
+
+    color: green;
+}
+
+.negative{
+
+    color: red;
+}
+
+.iconDots{
+
+    color:gray !important
+}
+
+.boxModal{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    box-Shadow: 24;
+    padding: 4px;
+    border-radius: 25px;
+}
+
+.openModalButton{
+
+    text-decoration: none;
+    color: gray;
+    background-color: transparent !important;
+}
+
+.openModalButton:hover{
+
+    color: gray;
+    background-color: transparent;
+}
+
+.openModalButton::after{
+
+    background-color: transparent;
+}
+
+.dropdown-item:active{
+
+    background-color: transparent !important;
+}
+
+#inputModal{
+
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+#closeButtonModal{
+
+    border-radius: 25px;
+    width: 25%;
+}

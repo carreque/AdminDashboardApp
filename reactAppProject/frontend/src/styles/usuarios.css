@@ -1,0 +1,31 @@
+.homeUsers{
+
+    display: flex;
+    width: 100%;
+}
+
+.containerUsers{
+
+    flex: 6;
+
+}
+
+.inputForm{
+
+    border-radius: 25px !important;
+}
+
+.boxModalUser{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    box-Shadow: 24;
+    padding: 4px;
+    border-radius: 25px;
+}

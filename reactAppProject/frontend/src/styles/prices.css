@@ -1,0 +1,38 @@
+.homePrices{
+
+    display: flex;
+    width: 100%;
+}
+
+.containerPrices{
+
+    flex: 6;
+}
+
+.buttonsChangePriceIVA{
+
+    border-radius: 25px !important;
+}
+
+.boxIncrementPrice{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 200px;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    box-Shadow: 24;
+    padding: 4px;
+    border-radius: 25px;
+    
+}
+
+.fieldPriceModal{
+
+    border-radius: 25px !important;
+    margin: 0 auto !important;
+    width: 70% !important;
+}

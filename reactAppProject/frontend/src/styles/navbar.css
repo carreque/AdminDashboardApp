@@ -1,0 +1,34 @@
+
+@media(min-width: 800px){
+
+    .headerNavbar{
+
+        height: 67px;
+        border-bottom: 0.5px solid rgb(231,228,228);
+        font-size: 14px;
+        color: #555;
+    }
+}
+
+@media(max-width: 768px){
+
+    .headerNavbar{
+
+        height: 67px;
+        border-bottom: 0.5px solid rgb(231,228,228);
+        font-size: 14px;
+        color: #555;
+    }
+
+    #logoutButtonAdminSesion{
+
+        margin-left: 20%;
+    }
+}
+
+
+
+#logoutButtonAdminSesion{
+
+    border-radius: 25px;
+}
