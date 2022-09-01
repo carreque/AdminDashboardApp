@@ -79,6 +79,58 @@
 
 .userInputs{
 
-    width: 70% !important;
     border-radius: 25px !important;
+}
+
+@media(max-width: 767px){
+
+    #userDatatables{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 340px;
+        height: 550px;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+    }
+}
+
+@media(min-width: 768px){
+
+    #userDatatables{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 550px;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+    }
+}
+
+@media(min-width: 1000px){
+
+    #userDatatables{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 550px;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+    }
 }

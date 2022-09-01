@@ -3,6 +3,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupIcon from '@mui/icons-material/Group';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import EuroIcon from '@mui/icons-material/Euro';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
@@ -29,6 +30,10 @@ export const Sidebar = () => {
                     <li className="itemColumn">
                         <EuroIcon className="icon"/>
                         <Link to={'/admin/precios'}><span className="spanContent">Modificar Precios</span></Link>
+                    </li>
+                    <li className="itemColumn mt-3">
+                        <MonetizationOnIcon className="icon"/>
+                        <Link to={'/admin/bills'}><span className="spanContent">Facturas</span></Link>
                     </li>
                     <p className="title">Manejo de Usuarios</p>
                     <li className="itemColumn">

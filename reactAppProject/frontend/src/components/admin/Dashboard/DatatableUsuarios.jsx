@@ -101,33 +101,25 @@ export const DatatableUsuarios = ({ numRows, Rows }) => {
 
     return (<div className='datatable'>
         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-            <Box className='boxModalProduct'>
+            <Box id="userDatatables">
                 <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center'>
                     Datos del usuario
                 </Typography>
                 <form onSubmit={editUser}>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Nombre</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Nombre</label>
                         <input type="text" placeholder='Introduzca el nombre' value={inputModalValues.name} onChange={handleChange} className="form-control text-center userInputs" name="name" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Email</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Email</label>
                         <input type="email" placeholder='Introduzca el email' value={inputModalValues.email} onChange={handleChange} className="form-control text-center userInputs" name="email" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Password</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Password</label>
                         <input type="password" placeholder='Introduzca la contraseña' value={inputModalValues.password} onChange={handleChange} className="form-control text-center userInputs" name="password" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Rol</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Rol</label>
                         <select className='form-control text-center userInputs' name="rol" value={inputModalValues.rol} onChange={handleChange}>
                             <option value={0}>Camarero</option>
                             <option value={1}>Administrador</option>

@@ -47,6 +47,7 @@ export const ProductsAdmin = () => {
     const [nuevaCategoria, setNuevaCategoria] = useState('');
     const refe1 = useRef(null);
     const refe2 = useRef(null);
+    const refe3 = useRef(null);
     const [nuevoProductoFeatures, setNuevoProductoFeatures] = useState({
 
         'name': '',
@@ -59,12 +60,15 @@ export const ProductsAdmin = () => {
     })
     const handleClose = () => setOpen(false);
     const handleOpen = (string) => {
-
+        console.log(string);
         const settings = openSettings(string);
         setContenido1(settings[0]);
         setContenido2(settings[1]);
         setBorradoCategoria(settings[2]);
+        // refe3.current.style.setProperty("height", "100px", "important");
+        //setProperty("height", "100px", "!important");
         setAlturaBox(settings[3]);
+
         setOpen(true)
     };
 
@@ -165,7 +169,7 @@ export const ProductsAdmin = () => {
     return (
         <div className='homeProduct'>
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box className='boxModalProduct' style={{ height: `${alturaBox} !important` }}>
+                <Box className='boxModalProduct' style={{height: `${alturaBox} !important`}}>
                     <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center'>
                         {contenido1 !== 'none' ? 'Nuevo Producto' : (contenido2 !== 'none' ? 'Nueva Categoría' : (borradoCategoria !== 'none' ? 'Seleccione Categoría A Borrar' : ''))}
                     </Typography>

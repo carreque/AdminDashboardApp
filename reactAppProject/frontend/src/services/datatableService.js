@@ -60,7 +60,7 @@ export const columnsProducts = [
                 </div>
             )
         }
-    },
+    }
 
 ];
 
@@ -132,6 +132,36 @@ export const deleteUser = (id) => {
 
     return axios.post(`${baseURL}/deleteUser`, {id}).then(resultado => resultado.data);
 }
+
+export const columnsBils = [
+
+    { 
+        field: 'id', 
+        headerName: 'ID', 
+        width: 130 
+    },
+    {
+        field: 'referencia',
+        headerName: 'Referencia',
+        width: 130
+    },
+    { 
+        field: 'mesa', 
+        headerName: 'Mesa',
+        width: 130 
+    },
+    {
+        field: 'total_base',
+        headerName: 'total_base',
+        width: 130,
+    },
+    {
+        field: 'total',
+        headerName: 'total',
+        width: 130,
+    },
+];
+
 
 
 

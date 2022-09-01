@@ -78,28 +78,20 @@ export const UsersAdmin = () => {
                 Nuevo Usuario
             </Typography>
                 <form onSubmit={handleNewUser}>
-                <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Nombre</label>
-                        </div>
+                <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Nombre</label>
                         <input type="text" placeholder='Introduzca el nombre' value={inputsNewUser.name} onChange={handleChange} className="form-control text-center userInputs" name="name" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Email</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Email</label>
                         <input type="email" placeholder='Introduzca el email' value={inputsNewUser.email} onChange={handleChange} className="form-control text-center userInputs" name="email" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Password</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Password</label>
                         <input type="password" placeholder='Introduzca la contraseña' value={inputsNewUser.password} onChange={handleChange} className="form-control text-center userInputs" name="password" />
                     </div>
-                    <div className='col-sm-12 d-flex mt-3 p-3'>
-                        <div className='col-sm-2'>
-                            <label className='form-label'>Rol</label>
-                        </div>
+                    <div className='col-sm-12 userRow'>
+                        <label className='form-label'>Rol</label>
                         <select className='form-control text-center userInputs' name="rol" value={inputsNewUser.rol} onChange={handleChange}>
                             <option value={0}>Camarero</option>
                             <option value={1}>Administrador</option>

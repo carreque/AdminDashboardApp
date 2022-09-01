@@ -118,6 +118,20 @@ class FacturaController extends Controller
         }
         
     }
+
+    public function getTodayBills(Request $request){
+
+        $facturas = Factura::all();
+        $facturasDiarias = [];
+        $fechaActual = strtotime(date('y-m-d'));
+        foreach($facturas as $factura){
+
+            strtotime(substr($factura->created_at,0,10)) === $fechaActual ? array_push($facturasDiarias, $factura->id) : null;
+
+        }
+
+        return !count($facturasDiarias) ? response()->json('No existen facturas de hoy', 500) : response()->json($facturasDiarias, 200);
+    }
     /**
      * Display a listing of the resource.
      *

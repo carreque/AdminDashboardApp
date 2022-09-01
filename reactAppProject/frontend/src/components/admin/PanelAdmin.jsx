@@ -1,4 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
+import { BillsAdmin } from './pages/BillsAdmin';
 import { HomeAdmin } from './pages/HomeAdmin';
 import { PreciosAdmin } from './pages/PreciosAdmin';
 import { ProductsAdmin } from './pages/ProductsAdmin';
@@ -12,6 +13,7 @@ export const PanelAdmin = () => {
             <Route path="productos" element={<ProductsAdmin/>} exact/>
             <Route path="precios" element={<PreciosAdmin/>} exact/>
             <Route path="usuarios" element={<UsersAdmin/>} exact/>
+            <Route path="bills" element={<BillsAdmin/>} exact/>
         </Routes>
     )
 }

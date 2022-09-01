@@ -63,6 +63,7 @@ Route::group([
     //Facturas
     Route::get('/earnToday', 'App\Http\Controllers\FacturaController@getAmountOfPricesEarnToday');
     Route::get('/earnLastSixMonth', 'App\Http\Controllers\FacturaController@getPricesLastSixMonth');
+    Route::get('/todayBills', 'App\Http\Controllers\FacturaController@getTodayBills');
 
     //Usuarios
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');
