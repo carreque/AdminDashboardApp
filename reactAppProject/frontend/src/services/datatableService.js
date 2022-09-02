@@ -81,7 +81,7 @@ export const editProduct = (values) => {
 
 export const deleteProduct = (id) => {
 
-    return axios.post(`${baseURL}/deleteProduct`, {id}).then(response => response.data);
+    return axios.delete(`${baseURL}/deleteProduct`, {params: {'id': id}}).then(response => response.data);
 }
 
 export const hiddeProduct = (id) => {
@@ -130,10 +130,11 @@ export const editAUser = (values) => {
 
 export const deleteUser = (id) => {
 
-    return axios.post(`${baseURL}/deleteUser`, {id}).then(resultado => resultado.data);
+    return axios.delete(`${baseURL}/deleteUser`, {params: {'id': id}}).then(resultado => resultado.data);
 }
 
-export const columnsBils = [
+//Bills
+export const columnsBills = [
 
     { 
         field: 'id', 
@@ -141,12 +142,12 @@ export const columnsBils = [
         width: 130 
     },
     {
-        field: 'referencia',
+        field: 'Referencia',
         headerName: 'Referencia',
         width: 130
     },
     { 
-        field: 'mesa', 
+        field: 'id_mesa', 
         headerName: 'Mesa',
         width: 130 
     },
@@ -161,6 +162,11 @@ export const columnsBils = [
         width: 130,
     },
 ];
+
+export const deleteBills = (id) => {
+
+    return axios.delete(`${baseURL}/deleteOneBill`, {params: {'id': id}}).then(resultado => resultado.data);
+}
 
 
 

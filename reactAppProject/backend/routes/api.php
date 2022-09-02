@@ -43,12 +43,12 @@ Route::group([
 
 ], function ($router) {
 
-    // Categorías
+    // Categories
     Route::get('/categories', 'App\Http\Controllers\CategoryController@show');
     Route::post('/newCategory', 'App\Http\Controllers\CategoryController@store');
     Route::post('/deleteCategory', 'App\Http\Controllers\CategoryController@destroy');    
 
-    //Productos
+    //Products
     Route::get('/meanPrice', 'App\Http\Controllers\ProductoController@getMediaOfPrices');
     Route::get('/getAProduct', 'App\Http\Controllers\ProductoController@show');
     Route::get('/getAllProducts', 'App\Http\Controllers\ProductoController@getAllProducts');
@@ -60,15 +60,18 @@ Route::group([
     Route::post('/newIVA', 'App\Http\Controllers\ProductoController@changeIva');
     Route::post('/newPrices', 'App\Http\Controllers\ProductoController@changePriceProduct');
 
-    //Facturas
+    //Bills
     Route::get('/earnToday', 'App\Http\Controllers\FacturaController@getAmountOfPricesEarnToday');
     Route::get('/earnLastSixMonth', 'App\Http\Controllers\FacturaController@getPricesLastSixMonth');
     Route::get('/todayBills', 'App\Http\Controllers\FacturaController@getTodayBills');
+    Route::get('/allBills', 'App\Http\Controllers\FacturaController@getAllBills');
+    Route::delete('/deleteOneBill', 'App\Http\Controllers\FacturaController@deleteOneBill');
 
-    //Usuarios
+    //Users
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');
     Route::get('/getInfoUser', 'App\Http\Controllers\Controller@getAUser');
-    Route::post('/deleteUser', 'App\Http\Controllers\Controller@deleteUser');
+    Route::delete('/deleteUser', 'App\Http\Controllers\Controller@deleteUser');
     Route::post('/newUser', 'App\Http\Controllers\Controller@newUser');
     Route::post('/editUser', 'App\Http\Controllers\Controller@editUser');
+    
 });

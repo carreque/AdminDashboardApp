@@ -132,6 +132,24 @@ class FacturaController extends Controller
 
         return !count($facturasDiarias) ? response()->json('No existen facturas de hoy', 500) : response()->json($facturasDiarias, 200);
     }
+
+    public function getAllBills(Request $request){
+
+        $facturas = Factura::all();
+
+        return $facturas != null ? response()->json($facturas, 200) : response()->json('No hay facturas', 400);
+    }
+
+    public function deleteOneBill(Request $request){
+
+        if($request->id != null){
+
+            $billDeleted = Factura::where('id', $request->id)->delete();
+            return $billDeleted ? response()->json('Factura eliminada Correctamente', 200) : response()->json('Se ha producido un error', 500);
+        }
+
+        return response()->json('Se ha producido un error al eliminar la factura', 500);
+    }
     /**
      * Display a listing of the resource.
      *
