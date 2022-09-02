@@ -4,6 +4,7 @@ import { columnsBills, deleteBills } from '../../../services/datatableService';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 export const DatatableBills = ({numRows, Rows}) => {
 
@@ -11,7 +12,7 @@ export const DatatableBills = ({numRows, Rows}) => {
         field: 'action', headerName: 'Acciones', width: 130, renderCell: (params) => {
             return (
                 <div className='cellAction d-flex'>
-                    <div className='editButton'><a href="#" onClick={(e) => { e.preventDefault(); handleOpenBills(params.row.id) }}><CreateIcon /></a></div>
+                    <div className='editButton'><Link to={"orderBills"} state={{idBill: params.row.id}}><CreateIcon /></Link></div>
                     <div className='DeleteButton ms-3'><a href="#" onClick={(e) => { e.preventDefault(); handleDeleteBill(params.row.id) }}><DeleteIcon /></a></div>
                 </div>
             )

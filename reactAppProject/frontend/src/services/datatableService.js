@@ -169,5 +169,8 @@ export const deleteBills = (id) => {
 }
 
 
+export const getComanda = (idBill) => {
 
+    return axios.get();
+}
 

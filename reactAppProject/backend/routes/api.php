@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\ComandaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -66,6 +67,7 @@ Route::group([
     Route::get('/todayBills', 'App\Http\Controllers\FacturaController@getTodayBills');
     Route::get('/allBills', 'App\Http\Controllers\FacturaController@getAllBills');
     Route::delete('/deleteOneBill', 'App\Http\Controllers\FacturaController@deleteOneBill');
+    Route::get('/getOrderFromOneBill', 'App\Http\Controllers\ComandaController@getOrderFromOneBill');
 
     //Users
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');
