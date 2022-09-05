@@ -6,7 +6,7 @@ import { Navbar } from '../Dashboard/Navbar';
 import { DatatableAdminProductos } from '../Dashboard/DatatableProductos';
 import { getAllProducts, getProductsOfACategory } from '../../../services/productsAdminService';
 import { getCategories } from '../../../services/homeAdminService';
-import { handleTypeOfIncrease, changeIva, changePrices} from '../../../services/preciosAdminService';
+import { handleTypeOfIncrease, changeIva, changePrices } from '../../../services/preciosAdminService';
 
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -34,19 +34,19 @@ export const PreciosAdmin = () => {
             throw new Error(error);
         })
     }, []);
-    
-    const handleChangeCategorias = (e) =>{  
-        
+
+    const handleChangeCategorias = (e) => {
+
         setValorSelector(e);
         getProductsOfACategory(e)
-        .then((result) => { SetProductos(result)})
-        .catch((error) => {
+            .then((result) => { SetProductos(result) })
+            .catch((error) => {
 
-            throw new Error(error);
-        })
+                throw new Error(error);
+            })
     }
 
-    const handleClose = () => setOpen(false); 
+    const handleClose = () => setOpen(false);
     const handleOpen = (string) => {
 
         const settingsOpen = handleTypeOfIncrease(string);
@@ -68,25 +68,25 @@ export const PreciosAdmin = () => {
             dangerMode: true,
         }).then((confirmacion) => {
 
-            if(confirmacion){
+            if (confirmacion) {
 
                 changeIva(selectorValor, newIva)
                     .then((resultado) => {
 
-                        if(resultado){
+                        if (resultado) {
 
                             swal("Iva Cambiado Correctamente", {
                                 icon: "success",
                             }).then((resultadoConfirmacion) => {
-    
-                                if(resultadoConfirmacion){
-    
+
+                                if (resultadoConfirmacion) {
+
                                     window.location.reload()
                                 }
-                            });   
+                            });
                         }
                     }
-                )
+                    )
             }
         })
     }
@@ -103,65 +103,65 @@ export const PreciosAdmin = () => {
             dangerMode: true,
         }).then((result) => {
 
-            if(result){
+            if (result) {
 
                 changePrices(selectorValor, newPrices)
                     .then((resultado) => {
 
-                        if(resultado){
+                        if (resultado) {
 
                             swal("Precio Cambiado Correctamente", {
                                 icon: "success",
                             }).then((resultadoConfirmacion) => {
-    
-                                if(resultadoConfirmacion){
-    
+
+                                if (resultadoConfirmacion) {
+
                                     window.location.reload()
                                 }
-                            });   
+                            });
                         }
                     }
-                )
+                    )
             }
         })
     }
     return (
 
         <div className='homePrices'>
-            <Sidebar/>
+            <Sidebar />
             <div className='containerPrices'>
-                <Navbar/>
+                <Navbar />
                 <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-            <Box className='boxIncrementPrice'>
-            <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center'>
-                Introduzca la cantidad a modificar
-            </Typography>
-                <form style={{display: `${mostrarPrimerModal}`}} onSubmit={handleNewPrice}>
-                    <div className='col-sm-12 text-center my-3'>
-                        <input type="number" className='form-control text-center fieldPriceModal' step="any" value={newPrices} onChange={(e) => {setNewPrices(e.target.value)}}/>
-                    </div>
-                    <div className='col-sm-12 text-center mt-2'>
-                        <button className='btn btn-danger buttonsChangePriceIVA'>Enviar</button>
-                        <button type="button" className='btn btn-secondary ms-2 buttonsChangePriceIVA' onClick={handleClose}>Cerrar</button>
-                    </div>
-                </form>
-                <form style={{display: `${mostrarSegundoModal}`}} onSubmit={handleNewIva}>
-                    <div className='col-sm-12 text-center my-3'>
-                        <input type="number" className='form-control text-center fieldPriceModal' step="any" value={newIva} onChange={(e) => {setNewIva(e.target.value)}}/>
-                    </div>
-                    <div className='col-sm-12 text-center mt-2'>
-                        <button className='btn btn-danger buttonsChangePriceIVA'>Enviar</button>
-                        <button type="button" className='btn btn-secondary ms-2 buttonsChangePriceIVA' onClick={handleClose}>Cerrar</button>
-                    </div>
-                </form>
-            </Box>
-            </Modal>
+                    <Box className='boxIncrementPrice'>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center'>
+                            Introduzca la cantidad a modificar
+                        </Typography>
+                        <form style={{ display: `${mostrarPrimerModal}` }} onSubmit={handleNewPrice}>
+                            <div className='col-sm-12 text-center my-3'>
+                                <input type="number" className='form-control text-center fieldPriceModal' step="any" value={newPrices} onChange={(e) => { setNewPrices(e.target.value) }} />
+                            </div>
+                            <div className='col-sm-12 text-center mt-2'>
+                                <button className='btn btn-danger buttonsChangePriceIVA'>Enviar</button>
+                                <button type="button" className='btn btn-secondary ms-2 buttonsChangePriceIVA' onClick={handleClose}>Cerrar</button>
+                            </div>
+                        </form>
+                        <form style={{ display: `${mostrarSegundoModal}` }} onSubmit={handleNewIva}>
+                            <div className='col-sm-12 text-center my-3'>
+                                <input type="number" className='form-control text-center fieldPriceModal' step="any" value={newIva} onChange={(e) => { setNewIva(e.target.value) }} />
+                            </div>
+                            <div className='col-sm-12 text-center mt-2'>
+                                <button className='btn btn-danger buttonsChangePriceIVA'>Enviar</button>
+                                <button type="button" className='btn btn-secondary ms-2 buttonsChangePriceIVA' onClick={handleClose}>Cerrar</button>
+                            </div>
+                        </form>
+                    </Box>
+                </Modal>
                 <div className='col-sm-12 d-flex mt-3'>
                     <div className="col-sm-6 d-flex">
                         <div className='col-sm-3 p-2 ms-2'>
                             <label className='form-label'>Número de Páginas: </label>
                         </div>
-                        <select className='form-control selectPages text-center' onClick={(e) => {setPages(e.target.value)}}>
+                        <select className='form-control selectPages text-center' onClick={(e) => { setPages(e.target.value) }}>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
@@ -174,21 +174,21 @@ export const PreciosAdmin = () => {
                         <div className='col-sm-3 p-2 ms-2'>
                             <label className='form-label'>Categorías: </label>
                         </div>
-                            <select className='form-control selectPages text-center' onClick={(e) => {handleChangeCategorias(e.target.value)}}>
-                                <option key={0} value={0}>Todos</option>
-                                {
-                                    Categorias?.map((categoria) => {
-                                        return (<option key={categoria.id} value={categoria.id}>{categoria.name}</option>)
-                                    })
-                                }
-                            </select>
+                        <select className='form-control selectPages text-center' onClick={(e) => { handleChangeCategorias(e.target.value) }}>
+                            <option key={0} value={0}>Todos</option>
+                            {
+                                Categorias?.map((categoria) => {
+                                    return (<option key={categoria.id} value={categoria.id}>{categoria.name}</option>)
+                                })
+                            }
+                        </select>
                     </div>
                 </div>
                 <div className='col-sm-12 text-center mt-3'>
-                    <button className='btn btn-danger buttonsChangePriceIVA' onClick={(e) => {handleOpen('Precio')}}>Incrementar Precio</button>
-                    <button className='btn btn-danger ms-2 buttonsChangePriceIVA' onClick={(e) => {handleOpen('IVA')}}>Incrementar IVA</button>
+                    <button className='btn btn-danger buttonsChangePriceIVA' onClick={(e) => { handleOpen('Precio') }}>Incrementar Precio</button>
+                    <button className='btn btn-danger ms-2 buttonsChangePriceIVA' onClick={(e) => { handleOpen('IVA') }}>Incrementar IVA</button>
                 </div>
-                <DatatableAdminProductos numRows={parseInt(numPages)} Rows={Productos}/>
+                <DatatableAdminProductos numRows={parseInt(numPages)} Rows={Productos} />
             </div>
         </div>
     )

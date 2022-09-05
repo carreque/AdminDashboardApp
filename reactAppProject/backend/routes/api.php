@@ -68,7 +68,10 @@ Route::group([
     Route::get('/allBills', 'App\Http\Controllers\FacturaController@getAllBills');
     Route::delete('/deleteOneBill', 'App\Http\Controllers\FacturaController@deleteOneBill');
     Route::get('/getOrderFromOneBill', 'App\Http\Controllers\ComandaController@getOrderFromOneBill');
-
+    Route::put('/incrementProduct', 'App\Http\Controllers\FacturaController@incrementProductOneBill');
+    Route::put('/decrementProduct', 'App\Http\Controllers\FacturaController@decrementProductOneBill');
+    Route::get('/filteredOrders', 'App\Http\Controllers\FacturaController@getOrdersFiltered');
+    
     //Users
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');
     Route::get('/getInfoUser', 'App\Http\Controllers\Controller@getAUser');

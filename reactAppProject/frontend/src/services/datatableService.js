@@ -161,6 +161,19 @@ export const columnsBills = [
         headerName: 'total',
         width: 130,
     },
+    {
+        field: 'created_at',
+        headerName: 'Fecha',
+        width: 130,
+        renderCell: (params) => {
+            const element = String(params.formattedValue)
+            return (
+                <div>
+                    {element.substring(0,10)}
+                </div>
+            )
+        }
+    }
 ];
 
 export const deleteBills = (id) => {

@@ -19,8 +19,6 @@ export const DatatableBills = ({numRows, Rows}) => {
         }
     }];
 
-    const handleOpenBills = (id) => {}
-    const handleClose = () => {}
     const handleDeleteBill = (id) => {
 
         swal({

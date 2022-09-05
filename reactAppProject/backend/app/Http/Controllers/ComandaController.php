@@ -16,6 +16,9 @@ class ComandaController extends Controller
             if($factura === null) return response()->json('Se ha producido un error al obtener la factura, 500');
 
             $comanda = array();
+            $precio = array();
+            $iva = array();
+            $ids = array();
             foreach(is_array(unserialize($factura->consumiciones)) ? unserialize($factura->consumiciones) : [unserialize($factura->consumiciones)] as $consumisicion){
 
                 $producto = Producto::find($consumisicion);
@@ -28,11 +31,15 @@ class ComandaController extends Controller
                     }else{
     
                         $comanda[$producto->name] = 1;
+                        $precio[$producto->name] = $producto->precio_racion != 0 ? $producto->precio_racion : $producto->precio_bebida;
+                        $iva[$producto->name] = $producto->IVA;
+                        $ids[$producto->name] = $consumisicion;
+
                     }
                 }  
             }
 
-            return response()->json($comanda,200);
+            return response()->json([$comanda, $precio, $iva, $ids],200);
             
         }
 

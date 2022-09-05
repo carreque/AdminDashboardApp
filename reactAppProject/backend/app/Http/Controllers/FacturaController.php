@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Factura;
+use App\Models\Producto;
 
 class FacturaController extends Controller
 {
@@ -150,58 +151,58 @@ class FacturaController extends Controller
 
         return response()->json('Se ha producido un error al eliminar la factura', 500);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    
+    public function incrementProductOneBill(Request $request){
+
+        if($request->id != null && $request->factura != null){
+
+            $factura = Factura::find($request->factura);
+            $consumiciones = !is_Array(unserialize($factura->consumiciones)) ? [unserialize($factura->consumiciones)] : unserialize($factura->consumiciones);
+            array_push($consumiciones, intval($request->id));
+            $producto = Producto::where('id', $request->id)->first(); 
+            $factura->total += $producto->precio_racion != 0 ? $producto->precio_racion : $producto->precio_bebida;
+            $factura->total_base = $factura->total - ($factura->total * $factura->total_iva/100);
+            $rowsUpdated = Factura::where('id', $factura->id)->update(['consumiciones'=> serialize($consumiciones), 'total_base' => $factura->total_base, 'total' => $factura->total]);
+            return $rowsUpdated != 0 ? response()->json('Fila Actualizada Correctamente', 200) : response()->json('Se ha producido un error al actualizar fila', 500);
+        }
+
+        return response()->json('Se ha producido un error al actualizar la factura', 500);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function decrementProductOneBill(Request $request){
+
+        if($request->id != null && $request->factura != null){
+
+            $factura = Factura::find($request->factura);
+            $consumiciones = !is_Array(unserialize($factura->consumiciones)) ? [unserialize($factura->consumiciones)] : unserialize($factura->consumiciones);
+            $clave = array_search($request->id, $consumiciones);
+            $consumiciones[$clave] = null;
+            $producto = Producto::where('id', $request->id)->first();
+            $factura->total -= $producto->precio_racion != 0 ? $producto->precio_racion : $producto->precio_bebida;
+            $factura->total_base = $factura->total - ($factura->total * $factura->total_iva/100);
+            $rowsUpdated = Factura::where('id', $factura->id)->update(['consumiciones'=> serialize(array_values($consumiciones)), 'total_base' => $factura->total_base, 'total' => $factura->total]);
+            return $rowsUpdated != 0 ? response()->json('Fila Actualizada Correctamente', 200) : response()->json('Se ha producido un error al actualizar fila', 500);
+        }
+
+        return response()->json('Se ha producido un error al actualizar la factura', 500);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function getOrdersFiltered(Request $request){
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        if($request->all() !== null){
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            $facturasToDatatable = [];
+            $facturas = $request->referencia !== null ? [Factura::where('referencia', $request->referencia)->first()] : ($request->numMesa !== null ? $factura = Factura::where('id_mesa', $request->numMesa)->get() : Factura::all());
+            foreach($facturas as $factura){
+                if(strtotime(substr($factura->created_at,0,10)) > strtotime($request->fechaInicio) && strtotime($request->fechaFin) < strtotime(substr($factura->created_at, 0,10))){
+
+                    array_push($facturasToDatatable, $factura);
+                }
+            }
+
+            return response()->json($facturasToDatatable, 200);
+        }
+
+        return response()->json('Se ha producido un error al filtrar facturas', 500);
     }
 }
