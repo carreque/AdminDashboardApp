@@ -131,7 +131,7 @@ class FacturaController extends Controller
 
         }
 
-        return !count($facturasDiarias) ? response()->json('No existen facturas de hoy', 500) : response()->json($facturasDiarias, 200);
+        return !count($facturasDiarias) ? response()->json('No existen facturas de hoy', 200) : response()->json($facturasDiarias, 200);
     }
 
     public function getAllBills(Request $request){
@@ -190,19 +190,29 @@ class FacturaController extends Controller
     public function getOrdersFiltered(Request $request){
 
         if($request->all() !== null){
+            
+            $ordersToDatatable = [];
+            $orders = [];
+            $request->referencia !== null ? array_push($orders, Factura::where('Referencia', $request->referencia)->first()) : 
+            ($request->numMesa != null ? $orders = Factura::where('id_mesa', $request->numMesa)->get() : $orders = Factura::all());
+            
+            foreach($orders as $order){
 
-            $facturasToDatatable = [];
-            $facturas = $request->referencia !== null ? [Factura::where('referencia', $request->referencia)->first()] : ($request->numMesa !== null ? $factura = Factura::where('id_mesa', $request->numMesa)->get() : Factura::all());
-            foreach($facturas as $factura){
-                if(strtotime(substr($factura->created_at,0,10)) > strtotime($request->fechaInicio) && strtotime($request->fechaFin) < strtotime(substr($factura->created_at, 0,10))){
+                if(strtotime(substr($order->created_at, 0,10)) >= strtotime($request->fechaInicio) && strtotime(substr($order->created_at,0,10)) <= strtotime($request->fechaFin)){
 
-                    array_push($facturasToDatatable, $factura);
+                    array_push($ordersToDatatable, $order);
                 }
             }
 
-            return response()->json($facturasToDatatable, 200);
+            return response()->json($ordersToDatatable,200);
         }
 
         return response()->json('Se ha producido un error al filtrar facturas', 500);
+    }
+
+    public function getLastOrders(Request $request){
+
+        $lastOrders = Factura::latest()->take(10)->get();
+        return $lastOrders != null ? response()->json($lastOrders,200) : response()->json('Se ha producido un error al obtener pedidos', 500);
     }
 }

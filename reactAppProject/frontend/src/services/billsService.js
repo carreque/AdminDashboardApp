@@ -56,5 +56,5 @@ export const decrementProduct = (id, idBill) => {
 
 export const filterOrders = (filterValues) => {
 
-    return axios.get(`${baseURL}/filteredOrders`, filterValues).then(response => response.data);
+    return axios.get(`${baseURL}/filteredOrders`, {params: filterValues}).then(response => response.data);
 }

@@ -12,6 +12,10 @@ export const getCategories = () => {
    return axios.get(`${baseURL}/categories`).then(response => response.data);
 }
 
+export const getLastOrders = () => {
+
+    return axios.get(`${baseURL}/lastOrders`).then(response => response.data);
+}
 export const getUsers = () => {
 
     return axios.get(`${baseURL}/allUsers`).then(response => response.data);

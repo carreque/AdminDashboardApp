@@ -8,17 +8,18 @@ import { DatatableBills } from '../Dashboard/DatatableBills';
 import { Modal } from '@mui/material';
 import {Box} from '@mui/material';
 
+const inicialState = {
+    'fechaInicio': '',
+    'fechaFin': '',
+    'referencia': '',
+    'numMesa': ''
+}
 export const BillsAdmin = () => {
 
     const [numPagesBills, setNumPagesBills] = useState(5);
     const [bills, setBills] = useState(null);
     const [open, setOpen] = useState(false);
-    const [filterValues, setFilteredValues] = useState({
-        'fechaInicio': '',
-        'fechaFin': '',
-        'referencia': '',
-        'numMesa': ''
-    });
+    const [filterValues, setFilteredValues] = useState(inicialState);
     useEffect(() => {
 
         getAllBills()
@@ -47,8 +48,13 @@ export const BillsAdmin = () => {
     const handleFiltered = (e) => {
 
         e.preventDefault();
+        console.log(filterValues);
         filterOrders(filterValues)
-        .then((resultado) => setBills(resultado))
+        .then((resultado) => {
+            console.log(resultado);
+            setBills(resultado);
+            setFilteredValues(inicialState);
+        })           
         .catch((error) => {
 
             throw new Error(error);
@@ -71,10 +77,10 @@ export const BillsAdmin = () => {
                         </div>
                         <div className='col-12 d-flex'>
                             <div className="col-6 text-center p-2">
-                                <input type="date" className="form-control" name="fechaInicio" required={true} onChange={handleChangeFilterValues}/>
+                                <input type="date" className="form-control" name="fechaInicio" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaInicio}/>
                             </div>
                             <div className="col-6 text-center p-2">
-                                <input type="date" className="form-control" name="fechaFin" required={true} onChange={handleChangeFilterValues}/>
+                                <input type="date" className="form-control" name="fechaFin" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaFin}/>
                             </div>
                         </div>
                         <div className='col-12 d-flex'>
@@ -87,10 +93,10 @@ export const BillsAdmin = () => {
                         </div>
                         <div className='col-12 d-flex'>
                             <div className="col-6 text-center p-2">
-                                <input type="text" className="form-control" name="referencia" onChange={handleChangeFilterValues}/>
+                                <input type="text" className="form-control" name="referencia" onChange={handleChangeFilterValues} value={filterValues.referencia}/>
                             </div>
                             <div className="col-6 text-center p-2">
-                                <input type="number" className="form-control" name="numMesa" onChange={handleChangeFilterValues}/>
+                                <input type="number" className="form-control" name="numMesa" onChange={handleChangeFilterValues} value={filterValues.numMesa}/>
                             </div>
                         </div>
                         <div className="col-12 text-center mt-3">

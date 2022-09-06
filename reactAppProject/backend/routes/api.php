@@ -71,6 +71,7 @@ Route::group([
     Route::put('/incrementProduct', 'App\Http\Controllers\FacturaController@incrementProductOneBill');
     Route::put('/decrementProduct', 'App\Http\Controllers\FacturaController@decrementProductOneBill');
     Route::get('/filteredOrders', 'App\Http\Controllers\FacturaController@getOrdersFiltered');
+    Route::get('/lastOrders', 'App\Http\Controllers\FacturaController@getLastOrders');
     
     //Users
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');
