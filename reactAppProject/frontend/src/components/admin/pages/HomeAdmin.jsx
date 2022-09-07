@@ -50,39 +50,43 @@ export const HomeAdmin = () => {
                     <Featured />
                     <Chart />
                 </div>
-                <div className='card mt-5'>
-                    <div className="card-header">
-                        <h4 className='text-center'>Últimas Facturas</h4>
-                    </div>
-                    <div className="card-body">
-                        <div className="table-responsive">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>Referencia</th>
-                                        <th>Mesa</th>
-                                        <th>Total base</th>
-                                        <th>Total</th>
-                                        <th>Fecha</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        lastBill?.map((item) =>{
-
-                                            return(
-                                                <div key={item.id}>
-                                                    <td scope="col">{item.Referencia}</td>
-                                                    <td scope="col">{item.id_mesa}</td>
-                                                    <td scope="col">{item.total_base}</td>
-                                                    <td scope="col">{item.total}</td>
-                                                    <td scope="col">{substring(item.created_at, 0,10)}</td>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </tbody>
-                            </table>
+                <div className='p-3'>
+                    <div className='card mt-5'>
+                        <div className="card-header">
+                            <h4 className='text-center'>Últimas Facturas</h4>
+                        </div>
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Referencia</th>
+                                            <th>Mesa</th>
+                                            <th>Total base</th>
+                                            <th>Total</th>
+                                            <th>Fecha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            lastBill?.map((item) =>{
+                                                
+                                                return(
+                                                    <>
+                                                        <tr key={item.id}>
+                                                            <td scope='col'>{item.Referencia}</td>
+                                                            <td scope='col'>{item.id_mesa}</td>
+                                                            <td scope='col'>{item.total_base}</td>
+                                                            <td scope='col'>{item.total}</td>
+                                                            <td scope='col'>{item.created_at.substring(0,10)}</td>
+                                                        </tr>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

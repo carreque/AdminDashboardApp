@@ -77,10 +77,10 @@ export const BillsAdmin = () => {
                         </div>
                         <div className='col-12 d-flex'>
                             <div className="col-6 text-center p-2">
-                                <input type="date" className="form-control" name="fechaInicio" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaInicio}/>
+                                <input type="date" className="form-control inputBills" name="fechaInicio" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaInicio}/>
                             </div>
                             <div className="col-6 text-center p-2">
-                                <input type="date" className="form-control" name="fechaFin" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaFin}/>
+                                <input type="date" className="form-control inputBills" name="fechaFin" required={true} onChange={handleChangeFilterValues} value={filterValues.fechaFin}/>
                             </div>
                         </div>
                         <div className='col-12 d-flex'>
@@ -93,15 +93,15 @@ export const BillsAdmin = () => {
                         </div>
                         <div className='col-12 d-flex'>
                             <div className="col-6 text-center p-2">
-                                <input type="text" className="form-control" name="referencia" onChange={handleChangeFilterValues} value={filterValues.referencia}/>
+                                <input type="text" className="form-control inputBills" name="referencia" onChange={handleChangeFilterValues} value={filterValues.referencia}/>
                             </div>
                             <div className="col-6 text-center p-2">
-                                <input type="number" className="form-control" name="numMesa" onChange={handleChangeFilterValues} value={filterValues.numMesa}/>
+                                <input type="number" className="form-control inputBills" name="numMesa" onChange={handleChangeFilterValues} value={filterValues.numMesa}/>
                             </div>
                         </div>
                         <div className="col-12 text-center mt-3">
-                            <button className='btn btn-primary me-3'>Enviar</button>
-                            <button type="button" className="btn btn-secondary" onClick={handleClose}>Cerrar</button>
+                            <button className='btn btn-primary me-3 buttonBills'>Enviar</button>
+                            <button type="button" className="btn btn-secondary buttonBills" onClick={handleClose}>Cerrar</button>
                         </div>
                     </form>
                 </Box>
@@ -112,7 +112,7 @@ export const BillsAdmin = () => {
                 <div className='col-12 d-flex'>
                     <div className="col-6 d-flex p-4">
                         <label className="form-label">Número de Páginas: </label>
-                        <select className='form-control ms-3 text-center' id="filterBillsPages" onChange={(e) => handleChangePages(e)}>
+                        <select className='form-control ms-3 text-center inputBills' id="filterBillsPages" onChange={(e) => handleChangePages(e)}>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
@@ -121,7 +121,7 @@ export const BillsAdmin = () => {
                         </select>
                     </div>
                     <div className="col-6 text-end p-2">
-                        <button className="btn btn-primary me-5" id="dateFiltrado" onClick={handleOpen}>Filtrar</button>
+                        <button className="btn btn-primary me-5 buttonBills" id="dateFiltrado" onClick={handleOpen}>Filtrar</button>
                     </div>
                 </div>
 

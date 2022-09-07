@@ -10,10 +10,15 @@
 
 }
 
-.inputForm{
+@media(max-width: 767px){
 
-    border-radius: 25px !important;
+    .inputForm{
+
+        border-radius: 25px !important;
+        width: 100%  !important;
+    }
 }
+
 
 @media(min-width: 1000px){
 
@@ -30,6 +35,12 @@
         box-Shadow: 24;
         padding: 4px;
         border-radius: 25px;
+    }
+
+    .inputForm{
+
+        border-radius: 25px !important;
+        width: 30%  !important;
     }
 }
 

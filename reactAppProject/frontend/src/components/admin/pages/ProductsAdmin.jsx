@@ -20,7 +20,6 @@ export const ProductsAdmin = () => {
             getAllProducts(),
             getCategories()
         ]).then((response) => {
-            console.log(response);
             SetProductos(response[0]);
             setCategorias(response[1]);
         }).catch((error) => {
@@ -43,11 +42,10 @@ export const ProductsAdmin = () => {
     const [contenido2, setContenido2] = useState('none');
     const [borradoCategoria, setBorradoCategoria] = useState('none');
     const [categoriaABorrar, setCategoriaABorrar] = useState(0);
-    const [alturaBox, setAlturaBox] = useState('710px');
+    const [alturaBox, setAlturaBox] = useState('boxModalProduct');
     const [nuevaCategoria, setNuevaCategoria] = useState('');
     const refe1 = useRef(null);
     const refe2 = useRef(null);
-    const refe3 = useRef(null);
     const [nuevoProductoFeatures, setNuevoProductoFeatures] = useState({
 
         'name': '',
@@ -65,8 +63,6 @@ export const ProductsAdmin = () => {
         setContenido1(settings[0]);
         setContenido2(settings[1]);
         setBorradoCategoria(settings[2]);
-        // refe3.current.style.setProperty("height", "100px", "important");
-        //setProperty("height", "100px", "!important");
         setAlturaBox(settings[3]);
 
         setOpen(true)
@@ -169,56 +165,62 @@ export const ProductsAdmin = () => {
     return (
         <div className='homeProduct'>
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box className='boxModalProduct' style={{height: `${alturaBox} !important`}}>
+                <Box className={alturaBox}>
                     <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center'>
                         {contenido1 !== 'none' ? 'Nuevo Producto' : (contenido2 !== 'none' ? 'Nueva Categoría' : (borradoCategoria !== 'none' ? 'Seleccione Categoría A Borrar' : ''))}
                     </Typography>
                     <form style={{ display: `${contenido1}` }} onSubmit={handleNewProduct}>
-                        <div className='col-sm-12 col-Product'>
-                            <label className='form-label'>Nombre</label>
-                            <input type="text" placeholder='Introduzca el nombre' value={nuevoProductoFeatures.name} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name="name" />
+                        <div className="col-12 d-flex">
+                            <div className="col-6 text-center p-3">
+                                <label className='form-label'>Nombre</label>
+                                <input type="text" placeholder='Introduzca el nombre' value={nuevoProductoFeatures.name} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name="name" />
+                            </div>
+                            <div className="col-6 text-center p-3">
+                                <label className='form-label'>Tipo</label>
+                                <select className='form-control text-center modalInputsNewProduct' name="price" onChange={(e) => { handleInputAlimento(e.target.value) }}>
+                                    <option value={'Alimento'}>Alimento</option>
+                                    <option value={'Bebida'}>Bebida</option>
+                                </select>
+                            </div>
                         </div>
-                        <div className='col-sm-12 col-Product'>
-                            <label className='form-label'>Tipo</label>
-                            <select className='form-control text-center modalInputsNewProduct' name="price" onChange={(e) => { handleInputAlimento(e.target.value) }}>
-                                <option value={'Alimento'}>Alimento</option>
-                                <option value={'Bebida'}>Bebida</option>
-                            </select>
+                        <div className="col-12 d-flex">
+                            <div className="col-6 text-center p-3" id="precioRacion" ref={refe1}>
+                                <label className='form-label'>Precio</label>
+                                <input type="number" placeholder='Introduzca el precio del producto' value={nuevoProductoFeatures.precio_racion} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name='precio_racion' step="any" min="0" />
+                            </div>
+                            <div className="col-6 text-center p-3"  id="precioBebida" ref={refe2}>
+                                <label className='form-label'>Precio</label>
+                                <input type="number" placeholder='Introduzca el precio del producto' value={nuevoProductoFeatures.precio_bebida} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name='precio_bebida' step="any" min="0" />
+                            </div>
+                            <div className="col-6 text-center p-3">
+                                <label className='form-label'>IVA</label>
+                                <input type="number" placeholder='Introduzca el IVA  del producto' value={nuevoProductoFeatures.IVA} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name="IVA" step="any" min="0" />
+                            </div>
                         </div>
-                        <div className='col-sm-12 col-Product' id="precioRacion" ref={refe1}>
-                            <label className='form-label'>Precio</label>
-                            <input type="number" placeholder='Introduzca el precio del producto' value={nuevoProductoFeatures.precio_racion} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name='precio_racion' step="any" min="0" />
+                        <div className="col-12 d-flex">
+                            <div className="col-6 text-center p-3">
+                                <label className='form-label'>Activado</label>
+                                <select className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.Activado} onChange={handleChangeNuevoProducto} name="Activado">
+                                    <option value={0}>Desactivado</option>
+                                    <option value={1}>Activado</option>
+                                </select>
+                            </div>
+                            <div className="col-6 text-center p-3">
+                                <label className='form-label'>Categoría</label>
+                                <select name="tipo" className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.tipo} onChange={handleChangeNuevoProducto}>
+                                    {
+                                        Categorias?.map((categoria) => {
+                                            return (<option key={categoria.id} value={categoria.id}>{categoria.name}</option>)
+                                        })
+                                    }
+                                </select>
+                            </div>
                         </div>
-                        <div className='col-sm-12 col-Product' id="precioBebida" ref={refe2}>
-                            <label className='form-label'>Precio</label>
-                            <input type="number" placeholder='Introduzca el precio del producto' value={nuevoProductoFeatures.precio_bebida} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name='precio_bebida' step="any" min="0" />
-                        </div>
-                        <div className='col-sm-12  col-Product'>
-                            <label className='form-label'>IVA</label>
-                            <input type="number" placeholder='Introduzca el IVA  del producto' value={nuevoProductoFeatures.IVA} onChange={handleChangeNuevoProducto} className="form-control text-center modalInputsNewProduct" name="IVA" step="any" min="0" />
-                        </div>
-                        <div className='col-sm-12 col-Product'>
+                        <div className='col-sm-12 p-3'>
                             <label className='form-label'>Cocina</label>
                             <select className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.Cocina} onChange={handleChangeNuevoProducto} name="Cocina">
                                 <option value={0}>No Cocina</option>
                                 <option value={1}>A Cocina</option>
-                            </select>
-                        </div>
-                        <div className='col-sm-12 col-Product'>
-                            <label className='form-label'>Activado</label>
-                            <select className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.Activado} onChange={handleChangeNuevoProducto} name="Activado">
-                                <option value={0}>Desactivado</option>
-                                <option value={1}>Activado</option>
-                            </select>
-                        </div>
-                        <div className='col-sm-12 col-Product'>
-                            <label className='form-label'>Categoría</label>
-                            <select name="tipo" className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.tipo} onChange={handleChangeNuevoProducto}>
-                                {
-                                    Categorias?.map((categoria) => {
-                                        return (<option key={categoria.id} value={categoria.id}>{categoria.name}</option>)
-                                    })
-                                }
                             </select>
                         </div>
                         <div className='col-sm-12 text-center mt-3'>

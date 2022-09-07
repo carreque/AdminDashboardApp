@@ -106,9 +106,7 @@ export const UsersAdmin = () => {
             </Modal>
                 <div className='col-sm-12 d-flex mt-3'>
                     <div className='col-sm-6 text-start d-flex p-2'>
-                        <div className='col-sm-3 ms-2'>
-                            <label className='form-label'>Número de Páginas</label>
-                        </div>
+                        <label className='form-label p-3'>Número de Páginas: </label>
                         <select className='form-control inputForm text-center' value={numpages} onChange={(e) => {setPages(e.target.value)}}>
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -118,7 +116,7 @@ export const UsersAdmin = () => {
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <div className='col-sm-6 text-end'>
+                    <div className='col-sm-6 text-end p-3'>
                         <button type="button" className='btn btn-primary me-3 inputForm' onClick={handleOpen}>Añadir Usuario</button>
                     </div>
                 </div>

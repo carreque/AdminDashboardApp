@@ -24,23 +24,7 @@
         width: 40% !important;
         height: 3em;
         border-radius: 25px !important;
-    }
-
-    .boxModalProduct{
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        height: 700px !important;
-        background-color: whitesmoke;
-        border: 2px solid transparent;
-        box-Shadow: 24;
-        padding: 4px;
-        border-radius: 25px;
-        
-    }
+    }   
 
     .col-Product{
 
@@ -51,8 +35,47 @@
     #sendButtonModalProduct, #closeButtonModal{
 
         border-radius: 25px;
-        width: 40%;
+        width: 25%;
     }
+
+    .boxModalProduct{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80% !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+
+    .boxModalCategory{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: 30% !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+
+    .buttonCategoryCreation{
+
+        border-radius: 25px !important;
+        width: 45%;
+    }
+    
 }
 
 @media(min-width: 768px){
@@ -86,11 +109,28 @@
         
     }
 
-    .col-Product{
+    .boxModalCategory{
 
-        padding: 8px;
-        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        height: 30% !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
     }
+
+    .buttonCategoryCreation{
+
+        border-radius: 25px !important;
+        width: 45%;
+    }
+
 
     #sendButtonModalProduct, #closeButtonModal{
 
@@ -117,8 +157,24 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 700px;
-        height: 550px;
+        width: 50%;
+        height: 60% !important;
+        background-color: whitesmoke;
+        border: 2px solid transparent;
+        box-Shadow: 24;
+        padding: 4px;
+        border-radius: 25px;
+        
+    }
+
+    .boxModalCategory{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30%;
+        height: 25% !important;
         background-color: whitesmoke;
         border: 2px solid transparent;
         box-Shadow: 24;
@@ -127,14 +183,6 @@
         
     }
 }
-
-
-.buttonCategoryCreation{
-
-    border-radius: 25px !important;
-    width: 20%;
-}
-
 
 
 .modalInputsNewProduct{

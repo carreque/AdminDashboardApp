@@ -8,6 +8,16 @@
     width: 30%;
 }
 
+.buttonBills{
+
+    border-radius: 25px !important;
+    width: 15%;
+}
+
+.inputBills{
+
+    border-radius: 25px !important;
+}
 .modalBoxBills{
     position: absolute;
     top: 50%;

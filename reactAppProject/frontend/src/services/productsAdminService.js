@@ -36,16 +36,16 @@ export const openSettings = (string) => {
 
     if (string === 'Categoria') {
 
-        return ['none', 'block', 'none', '200px'];
+        return ['none', 'block', 'none', 'boxModalCategory'];
 
     } else if (string === 'Producto') {
    
-        return ['block', 'none', 'none', '710px'];
+        return ['block', 'none', 'none', 'boxModalProduct'];
 
     } else if (string === 'BorrarCategoria') {
 
         
-        return ['none', 'none', 'block', '200px'];
+        return ['none', 'none', 'block', 'boxModalCategory'];
     }
 
     

@@ -19,26 +19,26 @@ export const Sidebar = () => {
                     <p className="title">Principal</p>
                     <li className="itemColumn">
                         <DashboardIcon className="icon"/>
-                        <Link to={'/admin'}><span className="spanContent">Inicio</span></Link>
+                        <Link to={'/admin'} className='linkSideBar'><span className="spanContent">Inicio</span></Link>
                     </li>
                     <p className="title">Manejo de Productos y Categorías</p>
                     <li className="itemColumn">
                         <ProductionQuantityLimitsIcon className="icon"/>
-                        <Link to='/admin/Productos'><span className="spanContent">Productos y Categorías</span></Link>
+                        <Link to='/admin/Productos' className='linkSideBar'><span className="spanContent">Productos y Categorías</span></Link>
                     </li>
                     <p className="title">Manejo de Precios</p>
                     <li className="itemColumn">
                         <EuroIcon className="icon"/>
-                        <Link to={'/admin/precios'}><span className="spanContent">Modificar Precios</span></Link>
+                        <Link to={'/admin/precios'} className='linkSideBar'><span className="spanContent">Modificar Precios</span></Link>
                     </li>
                     <li className="itemColumn mt-3">
                         <MonetizationOnIcon className="icon"/>
-                        <Link to={'/admin/bills'}><span className="spanContent">Facturas</span></Link>
+                        <Link to={'/admin/bills'} className='linkSideBar'><span className="spanContent">Facturas</span></Link>
                     </li>
                     <p className="title">Manejo de Usuarios</p>
                     <li className="itemColumn">
                         <GroupIcon className="icon"/>
-                        <Link to={'/admin/Usuarios'}><span className="spanContent">Usuarios</span></Link>
+                        <Link to={'/admin/Usuarios'} className='linkSideBar'><span className="spanContent">Usuarios</span></Link>
                     </li>
                 </ul>
             </div>
