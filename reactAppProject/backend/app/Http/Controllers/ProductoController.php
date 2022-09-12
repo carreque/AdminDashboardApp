@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Factura;
 use Illuminate\Support\Facades\DB;
+
+use App\Http\Controllers\FacturaController;
 
 class ProductoController extends Controller
 {
@@ -165,5 +168,58 @@ class ProductoController extends Controller
         }
 
         return response()->json('Se ha producido un error al cambiar el precio de los productos', 400);
+    }
+
+    public function getConsumptionOfaProductWeekly(Request $request){
+
+        if($request->id != null){
+
+            $facturasSemanales = FacturaController::getWeeklyBills();
+            $totalConsumidos = 0;
+            $vecesProductoConsumido = 0;
+            foreach($facturasSemanales as $facturaSemanal){
+
+                $comanda = is_Array(unserialize($facturaSemanal->consumiciones)) ? unserialize($facturaSemanal->consumiciones) : [unserialize($facturaSemanal->consumiciones)];
+                while(in_array($request->id, $comanda)){
+
+                    $clave =  array_search($request->id, $comanda);
+                    unset($comanda[$clave]);
+                    $vecesProductoConsumido += 1;
+                }
+
+                $totalConsumidos += sizeof($comanda);
+            }
+            
+            return response()->json([$totalConsumidos, $vecesProductoConsumido], 200);
+        }
+
+        return response()->json('Se ha producido un error al obtener la consumicion semanal', 500);
+    }
+
+    public function getConsumptionOfaProductMonthly(Request $request){
+
+        if($request->id != null){
+
+            $facturasMensuales = FacturaController::getMonthlyBills();
+            $totalConsumidosMensuales = 0;
+            $productoConsumidosMensuales = 0;
+
+            foreach($facturasMensuales as $facturaMensual){
+
+                $comanda = is_Array(unserialize($facturaMensual->consumiciones)) ? unserialize($facturaMensual->consumiciones) : [unserialize($facturaSemanal->consumiciones)];
+                while(in_array($request->id, $comanda)){
+
+                    $clave =  array_search($request->id, $comanda);
+                    unset($comanda[$clave]);
+                    $productoConsumidosMensuales += 1;
+                }
+
+                $totalConsumidosMensuales += sizeof($comanda);
+            }
+
+            return response()->json([$totalConsumidosMensuales, $productoConsumidosMensuales], 200);
+        }
+
+        return response()->json('Se ha producido un error al obtener la consumición mensual', 500);
     }
 }

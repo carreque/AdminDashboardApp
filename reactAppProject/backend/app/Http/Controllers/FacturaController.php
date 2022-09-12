@@ -215,4 +215,42 @@ class FacturaController extends Controller
         $lastOrders = Factura::latest()->take(10)->get();
         return $lastOrders != null ? response()->json($lastOrders,200) : response()->json('Se ha producido un error al obtener pedidos', 500);
     }
+
+    static function getWeeklyBills(){
+
+        $semanaActual = date('W');
+        $facturasSemanales = [];
+
+        foreach(Factura::all() as $factura){
+
+            $fechaFactura = substr($factura->created_at, 0,10);
+            $diaFactura = substr($fechaFactura, 8,2);
+            $mesFactura = substr($fechaFactura, 5,2);
+            $anioFactura = substr($fechaFactura, 0,4);
+            $semanaFactura = date("W", mktime(0,0,0,$mesFactura, $diaFactura, $anioFactura));
+            $semanaFactura === $semanaActual ? array_push($facturasSemanales, $factura) : null;
+        }
+
+        return $facturasSemanales != null ? $facturasSemanales : response()->json('Se ha producido un error al retornar las facturas semanales', 500);
+    }
+
+    static function getMonthlyBills(){
+
+        $mesActual = date('m');
+        $facturasMensuales = [];
+
+        foreach(Factura::all() as $factura){
+
+            $fechaFactura = substr($factura->created_at, 0,10);
+            $diaFactura = substr($fechaFactura, 8,2);
+            $mesFactura = substr($fechaFactura, 5,2);
+            $anioFactura = substr($fechaFactura, 0,4);
+            $mesFactura = date("m", mktime(0,0,0,$mesFactura, $diaFactura, $anioFactura));
+            $mesActual === $mesFactura ? array_push($facturasMensuales, $factura) : null;
+        }
+
+        return $facturasMensuales != null ? $facturasMensuales : response()->json('Se ha producido un error al obtener las facturas mensuales', 500);
+    }
+
+    
 }

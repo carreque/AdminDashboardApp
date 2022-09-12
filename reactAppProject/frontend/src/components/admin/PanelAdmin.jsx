@@ -4,6 +4,7 @@ import { HomeAdmin } from './pages/HomeAdmin';
 import { OrderBillAdmin } from './pages/OrderBillAdmin';
 import { PreciosAdmin } from './pages/PreciosAdmin';
 import { ProductsAdmin } from './pages/ProductsAdmin';
+import { ReportsAdmin } from './pages/ReportsAdmin';
 import { UsersAdmin } from './pages/UsersAdmin';
 
 export const PanelAdmin = () => {
@@ -16,6 +17,7 @@ export const PanelAdmin = () => {
             <Route path="usuarios" element={<UsersAdmin/>} exact/>
             <Route path="bills" element={<BillsAdmin/>} exact/>
             <Route path="bills/orderBills" element={<OrderBillAdmin/>} exact />
+            <Route path="reports" element={<ReportsAdmin/>} exact/>
         </Routes>
     )
 }

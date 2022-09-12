@@ -60,7 +60,9 @@ Route::group([
     Route::post('/newProduct', 'App\Http\Controllers\ProductoController@store');
     Route::post('/newIVA', 'App\Http\Controllers\ProductoController@changeIva');
     Route::post('/newPrices', 'App\Http\Controllers\ProductoController@changePriceProduct');
-
+    Route::get('/productConsumptionWeekly', 'App\Http\Controllers\ProductoController@getConsumptionOfaProductWeekly');
+    Route::get('/productConsumptionMonthly', 'App\Http\Controllers\ProductoController@getConsumptionOfaProductMonthly');
+   
     //Bills
     Route::get('/earnToday', 'App\Http\Controllers\FacturaController@getAmountOfPricesEarnToday');
     Route::get('/earnLastSixMonth', 'App\Http\Controllers\FacturaController@getPricesLastSixMonth');
@@ -72,6 +74,7 @@ Route::group([
     Route::put('/decrementProduct', 'App\Http\Controllers\FacturaController@decrementProductOneBill');
     Route::get('/filteredOrders', 'App\Http\Controllers\FacturaController@getOrdersFiltered');
     Route::get('/lastOrders', 'App\Http\Controllers\FacturaController@getLastOrders');
+    Route::get('/weeklyOrders', 'App\Http\Controllers\FacturaController@getWeeklyBills');
     
     //Users
     Route::get('/allUsers', 'App\Http\Controllers\Controller@getUsers');

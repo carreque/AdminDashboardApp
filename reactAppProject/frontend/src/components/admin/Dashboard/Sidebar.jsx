@@ -5,6 +5,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import EuroIcon from '@mui/icons-material/Euro';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { Link } from 'react-router-dom';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 
 export const Sidebar = () => {
 
@@ -39,6 +40,11 @@ export const Sidebar = () => {
                     <li className="itemColumn">
                         <GroupIcon className="icon"/>
                         <Link to={'/admin/Usuarios'} className='linkSideBar'><span className="spanContent">Usuarios</span></Link>
+                    </li>
+                    <p className="title">Informes</p>
+                    <li className="itemCok">
+                        <AssessmentIcon className='icon'/>
+                        <Link to={'/admin/reports'} className='linkSideBar'><span className="spanContent">Informes</span></Link>
                     </li>
                 </ul>
             </div>
