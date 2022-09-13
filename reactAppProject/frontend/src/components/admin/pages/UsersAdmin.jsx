@@ -48,7 +48,6 @@ export const UsersAdmin = () => {
         e.preventDefault();
         createNewUser(inputsNewUser)
         .then((resultado) => {
-            console.log(resultado);
             if(resultado != null){
                 swal("Creado Correctamente", {
                     icon: "success",

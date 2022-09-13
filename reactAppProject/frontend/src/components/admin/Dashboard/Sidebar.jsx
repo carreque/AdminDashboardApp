@@ -6,6 +6,7 @@ import EuroIcon from '@mui/icons-material/Euro';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { Link } from 'react-router-dom';
 import AssessmentIcon from '@mui/icons-material/Assessment';
+import TableBarIcon from '@mui/icons-material/TableBar';
 
 export const Sidebar = () => {
 
@@ -42,9 +43,14 @@ export const Sidebar = () => {
                         <Link to={'/admin/Usuarios'} className='linkSideBar'><span className="spanContent">Usuarios</span></Link>
                     </li>
                     <p className="title">Informes</p>
-                    <li className="itemCok">
+                    <li className="itemColumn">
                         <AssessmentIcon className='icon'/>
                         <Link to={'/admin/reports'} className='linkSideBar'><span className="spanContent">Informes</span></Link>
+                    </li>
+                    <p className="title">Mesas</p>
+                    <li className="itemColumn">
+                        <TableBarIcon className='icon'/>
+                        <Link to={'/admin/tables'} className='linkSideBar'><span className="spanContent">Mesas</span></Link>
                     </li>
                 </ul>
             </div>

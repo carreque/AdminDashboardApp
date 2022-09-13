@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\ComandaController;
+use App\Http\Controllers\MesaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,7 +49,8 @@ Route::group([
     Route::get('/categories', 'App\Http\Controllers\CategoryController@show');
     Route::post('/newCategory', 'App\Http\Controllers\CategoryController@store');
     Route::post('/deleteCategory', 'App\Http\Controllers\CategoryController@destroy');    
-
+    Route::get('/getCategoryConsumptionsWeekly', 'App\Http\Controllers\CategoryController@getCategoryConsumptionWeekly');
+    Route::get('/getCategoryConsumptionsMonthly', 'App\Http\Controllers\CategoryController@getCategoryConsumptionMonthly');
     //Products
     Route::get('/meanPrice', 'App\Http\Controllers\ProductoController@getMediaOfPrices');
     Route::get('/getAProduct', 'App\Http\Controllers\ProductoController@show');
@@ -83,4 +85,11 @@ Route::group([
     Route::post('/newUser', 'App\Http\Controllers\Controller@newUser');
     Route::post('/editUser', 'App\Http\Controllers\Controller@editUser');
     
+    //Tables
+    Route::get('/allTables', 'App\Http\Controllers\MesaController@getAllTables');
+    Route::get('/getInfoTable', 'App\Http\Controllers\MesaController@getInfoTable');
+    Route::post('/newTable', 'App\Http\Controllers\MesaController@createNewTable');
+    Route::delete('/deleteTable', 'App\Http\Controllers\MesaController@destroy');
+    Route::put('/deactivateTable', 'App\Http\Controllers\MesaController@deactivateTable');
+    Route::put('/editDataTable', 'App\Http\Controllers\MesaController@editTable');
 });

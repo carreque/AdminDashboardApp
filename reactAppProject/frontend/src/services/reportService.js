@@ -19,5 +19,26 @@ export const getConsumptionOfAProductMonthly = (id) => {
 
             'id': id
         }
-    }).then(result => result.data)
+    }).then(result => result.data);
+}
+
+export const getCategoryConsumptionWeekly = (id) => {
+
+    return axios.get(`${baseURL}/getCategoryConsumptionsWeekly`, {
+        params: {
+
+            'id': id
+        }
+    }).then(result => result.data);
+}
+
+export const getCategoryConsumptionMonthly = (id) => {
+
+    return axios.get(`${baseURL}/getCategoryConsumptionsMonthly`,{
+
+        params: {
+
+            'id': id
+        }
+    }).then(result => result.data);
 }

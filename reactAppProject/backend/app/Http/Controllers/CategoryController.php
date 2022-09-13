@@ -78,4 +78,58 @@ class CategoryController extends Controller
 
         return response()->json('Se ha producido un error al eliminar la categoria', 400);
     }
+
+    public function getCategoryConsumptionWeekly(Request $request){
+
+        if($request->id != null){
+
+            $facturasSemanales = FacturaController::getWeeklyBills();
+            $totalCategoriasConsumidas = 0;
+            $timesCategoryConsumedWeekly = 0;
+
+            foreach($facturasSemanales as $factura){
+
+                $categoriasFactura = is_Array(unserialize($factura->tipos)) ? unserialize($factura->tipos) : [unserialize($factura->tipos)];
+                // return $categoriasFactura;
+                while(in_array($request->id, $categoriasFactura)){
+                    $clave = array_search($request->id, $categoriasFactura);
+                    unset($categoriasFactura[$clave]);
+                    $timesCategoryConsumedWeekly += 1;
+                }
+
+                $totalCategoriasConsumidas += sizeof($categoriasFactura);
+            }
+
+            return response()->json([$totalCategoriasConsumidas, $timesCategoryConsumedWeekly],200);
+        }
+
+        return response()->json('Se ha producido un error al obtener la consumicion semanal', 500);
+    }
+
+    public function getCategoryConsumptionMonthly(Request $request){
+
+        if($request->id != null){
+
+            $facturasMensuales = FacturaController::getMonthlyBills();
+            $totalCategoriasConsumidasMensuales = 0;
+            $timesCategoryConsumedMonthly = 0;
+            
+            foreach($facturasMensuales as $factura){
+
+                $tiposFactura = is_Array(unserialize($factura->tipos)) ? unserialize($factura->tipos) : [unserialize($factura->tipos)];
+                while(in_array($request->id, $tiposFactura)){
+
+                    $clave = array_search($request->id, $tiposFactura);
+                    unset($tiposFactura[$clave]);
+                    $timesCategoryConsumedMonthly += 1;
+                }
+
+                $totalCategoriasConsumidasMensuales += sizeof($tiposFactura);
+            }
+
+            return response()->json([$totalCategoriasConsumidasMensuales, $timesCategoryConsumedMonthly],200);
+        }
+
+        return response()->json('Se ha producido un error al obtener la consumicion mensual', 500);
+    }
 }

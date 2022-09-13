@@ -187,3 +187,88 @@ export const getComanda = (idBill) => {
     return axios.get();
 }
 
+//Tables
+export const columnsTables = [
+
+    { 
+        field: 'id', 
+        headerName: 'ID', 
+        width: 130 
+    },
+    { 
+        field: 'name', 
+        headerName: 'Nombre', 
+        width: 130 
+    },
+    { 
+        field: 'comensales', 
+        headerName: 'Comensales', 
+        width: 130 
+    },
+    { 
+        field: 'activa', 
+        headerName: 'Activa', 
+        width: 130,
+        renderCell: (params) => {
+
+            return (
+                <>
+                    {params.row.activa === 1 ? 'Ocupada' : 'Desocupada'}
+                </>
+            )
+        }
+    },
+    { 
+        field: 'estado', 
+        headerName: 'Estado', 
+        width: 130,
+        renderCell: (params) => {
+
+            return (
+                <>
+                    {params.row.estado === 1 ? 'Activada' : 'Desactivada'}
+                </>
+            )
+        }
+    }
+];
+
+export const getAllTables = () => {
+
+    return axios.get(`${baseURL}/allTables`).then((resultado) => resultado.data);
+}
+
+export const createNewTable = (values) => {
+
+    return axios.post(`${baseURL}/newTable`, values).then(resultado => resultado.data);
+}
+
+export const deleteTable = (id) => {
+
+    return axios.delete(`${baseURL}/deleteTable`, {
+        params: {
+
+            'id': id
+        }
+    }).then(resultado => resultado.data);
+}
+
+export const deactivateTableSelected = (id) => {
+
+    return axios.put(`${baseURL}/deactivateTable`, {'id': id}).then(resultado => resultado.data)
+}
+
+export const editDataTable = (values) => {
+
+    return axios.put(`${baseURL}/editDataTable`, values).then(resultado => resultado.data);
+}
+
+export const getTable = (id) => {
+
+    return axios.get(`${baseURL}/getInfoTable`, {
+        params: {
+
+            'id': id
+        }
+    }).then(resultado => resultado.data);
+}
