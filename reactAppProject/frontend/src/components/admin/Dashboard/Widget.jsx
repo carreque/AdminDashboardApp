@@ -8,7 +8,7 @@ export const Widget = ({ type, numeroActual }) => {
     const diff = 20;
     
     return (
-        <div className='widget'>
+        <div className='widget p-3'>
             <div className='left'>
                 <span className='titleWidget'>{data.title}</span>
                 <span className='counter'>{data.isMoney} {numeroActual}</span>

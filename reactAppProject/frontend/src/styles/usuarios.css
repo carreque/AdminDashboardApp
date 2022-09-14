@@ -10,15 +10,6 @@
 
 }
 
-@media(max-width: 767px){
-
-    .inputForm{
-
-        border-radius: 25px !important;
-        width: 100%  !important;
-    }
-}
-
 
 @media(min-width: 1000px){
 
@@ -61,7 +52,14 @@
         padding: 4px;
         border-radius: 25px;
     }
+
+    .inputForm{
+
+        border-radius: 25px !important;
+        width: 35% !important;
+    }
 }
+
 @media(max-width: 767px){
 
     .boxModalUser{
@@ -79,7 +77,11 @@
         border-radius: 25px;
     }
 
-   
+    .inputForm{
+
+        border-radius: 25px !important;
+        width: 100%  !important;
+    }
 }
 
 .userRow{
@@ -87,3 +89,4 @@
     text-align: center;
     padding: 10px;
 }
+

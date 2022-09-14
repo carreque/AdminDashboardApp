@@ -157,11 +157,9 @@ export const PreciosAdmin = () => {
                     </Box>
                 </Modal>
                 <div className='col-sm-12 d-flex mt-3'>
-                    <div className="col-sm-6 d-flex">
-                        <div className='col-sm-3 p-2 ms-2'>
-                            <label className='form-label'>Número de Páginas: </label>
-                        </div>
-                        <select className='form-control selectPages text-center' onClick={(e) => { setPages(e.target.value) }}>
+                    <div className="col-sm-6 d-flex p-4">
+                        <label className='form-label p-2'>Número de Páginas: </label>
+                        <select className='form-control selectPages text-center ms-2' onClick={(e) => { setPages(e.target.value) }}>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
@@ -170,11 +168,9 @@ export const PreciosAdmin = () => {
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <div className='col-sm-6 d-flex'>
-                        <div className='col-sm-3 p-2 ms-2'>
-                            <label className='form-label'>Categorías: </label>
-                        </div>
-                        <select className='form-control selectPages text-center' onClick={(e) => { handleChangeCategorias(e.target.value) }}>
+                    <div className='col-sm-6 d-flex p-4'>
+                        <label className='form-label p-2' id="labelPricesCategory">Categorías: </label>
+                        <select className='form-control selectPages text-center ms-2' onClick={(e) => { handleChangeCategorias(e.target.value) }}>
                             <option key={0} value={0}>Todos</option>
                             {
                                 Categorias?.map((categoria) => {

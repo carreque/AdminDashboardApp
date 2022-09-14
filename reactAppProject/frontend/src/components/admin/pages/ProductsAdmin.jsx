@@ -94,7 +94,7 @@ export const ProductsAdmin = () => {
         event.preventDefault();
         createProduct(nuevoProductoFeatures)
             .then((resultado) => {
-                console.log(resultado);
+                
                 if (resultado) {
 
                     setOpen(false);
@@ -216,7 +216,7 @@ export const ProductsAdmin = () => {
                                 </select>
                             </div>
                         </div>
-                        <div className='col-sm-12 p-3'>
+                        <div className='col-sm-12 p-3 text-center'>
                             <label className='form-label'>Cocina</label>
                             <select className='form-control text-center modalInputsNewProduct' value={nuevoProductoFeatures.Cocina} onChange={handleChangeNuevoProducto} name="Cocina">
                                 <option value={0}>No Cocina</option>
@@ -260,10 +260,8 @@ export const ProductsAdmin = () => {
                 <Navbar />
                 <div className='col-sm-12 d-flex mt-3'>
                     <div className="col-sm-6 d-flex">
-                        <div className='col-sm-3 p-2 ms-2'>
-                            <label className='form-label'>Número de Páginas: </label>
-                        </div>
-                        <select className='form-control selectPages text-center' onClick={(e) => { setPages(e.target.value) }}>
+                        <label className='form-label p-2 ms-5'>Número de Páginas: </label> 
+                        <select className='form-control selectPages text-center ms-2' onClick={(e) => { setPages(e.target.value) }}>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
@@ -272,11 +270,9 @@ export const ProductsAdmin = () => {
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <div className='col-sm-6 d-flex'>
-                        <div className='col-sm-3 p-2 ms-2'>
-                            <label className='form-label'>Categorías: </label>
-                        </div>
-                        <select className='form-control selectPages text-center' onClick={(e) => { handleChangeCategorias(e) }}>
+                    <div className='col-sm-6 d-flex '>
+                        <label className='form-label p-2' id="categoryLabel">Categorías: </label>
+                        <select className='form-control selectPages text-center ms-2' onClick={(e) => { handleChangeCategorias(e) }}>
                             <option value={0}>Todos</option>
                             {
                                 Categorias?.map((categoria) => {

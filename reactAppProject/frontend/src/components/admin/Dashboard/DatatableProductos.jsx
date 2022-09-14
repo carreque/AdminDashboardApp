@@ -13,12 +13,12 @@ import { getProductInformation, editProduct, deleteProduct, columnsProducts, hid
 
 export const DatatableAdminProductos = ({ numRows, Rows }) => {
     const actionColunm = [{
-        field: 'action', headerName: 'Acciones', width: 130, renderCell: (params) => {
+        field: 'action', headerName: 'Acciones', width: 200, renderCell: (params) => {
             return (
                 <div className='cellAction d-flex'>
-                    <div className='editButton'><a href="#" onClick={(e) => { e.preventDefault(); handleOpen(params.row.id) }}><CreateIcon /></a></div>
-                    <div className='DeleteButton ms-3'><a href="#" onClick={(e) => { e.preventDefault(); deleteProductHandling(params.row.id) }}><DeleteIcon /></a></div>
-                    <div className='hiddeButotn ms-3'><a href="#" onClick={(e) => { e.preventDefault(); hiddeProductHandling(params.row.id) }}><RemoveRedEyeIcon /></a></div>
+                    <div className='editButton'><button type="button" className="btn btn-primary" onClick={(e) => { e.preventDefault(); handleOpen(params.row.id) }}><CreateIcon /></button></div>
+                    <div className='DeleteButton ms-3'><button type="button" className="btn btn-primary" onClick={(e) => { e.preventDefault(); deleteProductHandling(params.row.id) }}><DeleteIcon /></button></div>
+                    <div className='hiddeButotn ms-3'><button type="button" className="btn btn-primary" onClick={(e) => { e.preventDefault(); hiddeProductHandling(params.row.id) }}><RemoveRedEyeIcon /></button></div>
                 </div>
             )
         }
@@ -147,40 +147,46 @@ export const DatatableAdminProductos = ({ numRows, Rows }) => {
                         Datos del Producto
                     </Typography>
                     <form onSubmit={editAProduct}>
-                        <div className='col-sm-12 d-flex my-3 p-3'>
-                            <div className='col-sm-2'>
-                                <label className='form-label'>Nombre</label>
+                        <div className="col-12 d-flex">
+                            <div className="col-6 p-2 text-center">
+                                <label className="form-label">Nombre</label>
                             </div>
-                            <input type="text" placeholder='Introduzca el nombre' value={inputModalValues.name} onChange={handleChange} className="form-control text-center modalInputsProducts" name="name" />
-                        </div>
-                        <div className='col-sm-12 d-flex my-3 p-3'>
-                            <div className='col-sm-2'>
-                                <label className='form-label'>{inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? 'Precio Bebida' : 'Precio Ración'}</label>
+                            <div className="col-6 p-2 text-center">
+                            <label className='form-label'>{inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? 'Precio Bebida' : 'Precio Ración'}</label>
                             </div>
-                            <input type="number" placeholder='Introduzca el precio del producto' value={inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? inputModalValues.precio_bebida : inputModalValues.precio_racion} onChange={handleChange} className="form-control text-center modalInputsProducts" name={inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? 'precio_bebida' : 'precio_racion'} step="any" min="0" />
                         </div>
-                        <div className='col-sm-12 d-flex my-3 p-3'>
-                            <div className='col-sm-2'>
+                        <div className="col-12 d-flex">
+                            <div className="col-6 p-2">
+                                <input type="text" placeholder='Introduzca el nombre' value={inputModalValues.name} onChange={handleChange} className="form-control text-center modalInputsProducts" name="name" />
+                            </div>
+                            <div className="col-6 p-2">
+                                <input type="number" placeholder='Introduzca el precio del producto' value={inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? inputModalValues.precio_bebida : inputModalValues.precio_racion} onChange={handleChange} className="form-control text-center modalInputsProducts" name={inputModalValues.tipo === 8 || inputModalValues.tipo === 9 ? 'precio_bebida' : 'precio_racion'} step="any" min="0" />
+                            </div>
+                        </div>
+                        <div className="col-12 d-flex">
+                            <div className="col-6 p-2 text-center">
                                 <label className='form-label'>IVA</label>
                             </div>
-                            <input type="number" placeholder='Introduzca el IVA  del producto' value={inputModalValues.IVA} onChange={handleChange} className="form-control text-center modalInputsProducts" name="IVA" step="any" min="0" />
-                        </div>
-                        <div className='col-sm-12 d-flex my-3 p-3'>
-                            <div className='col-sm-2'>
-                                <label className='form-label'>Cocina</label>
+                            <div className="col-6 p-2 text-center">
+                                <label className='form-label'>Activado</label>
                             </div>
+                        </div>
+                        <div className="col-12 d-flex">
+                            <div className="col-6 p-2">
+                                <input type="number" placeholder='Introduzca el IVA  del producto' value={inputModalValues.IVA} onChange={handleChange} className="form-control text-center modalInputsProducts" name="IVA" step="any" min="0" />
+                            </div>
+                            <div className="col-6 p-2">
+                                <select className='form-control text-center modalInputsProducts' value={inputModalValues.Activado} onChange={handleChange} name="Activado">
+                                    <option value={0}>Desactivado</option>
+                                    <option value={1}>Activado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className='col-sm-12 my-3 p-3 text-center'>
+                            <label className='form-label'>Cocina</label>
                             <select className='form-control text-center modalInputsProducts' value={inputModalValues.Cocina} onChange={handleChange} name="Cocina">
                                 <option value={0}>No Cocina</option>
                                 <option value={1}>A Cocina</option>
-                            </select>
-                        </div>
-                        <div className='col-sm-12 d-flex my-3 p-3'>
-                            <div className='col-sm-2'>
-                                <label className='form-label'>Activado</label>
-                            </div>
-                            <select className='form-control text-center modalInputsProducts' value={inputModalValues.Activado} onChange={handleChange} name="Activado">
-                                <option value={0}>Desactivado</option>
-                                <option value={1}>Activado</option>
                             </select>
                         </div>
                         <div className='col-sm-12 text-center mt-3'>

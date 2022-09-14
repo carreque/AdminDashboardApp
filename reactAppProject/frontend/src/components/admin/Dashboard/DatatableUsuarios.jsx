@@ -13,11 +13,11 @@ import { columnsUsers, deleteUser, editAUser } from '../../../services/datatable
 export const DatatableUsuarios = ({ numRows, Rows }) => {
 
     const actionColunm = [{
-        field: 'action', headerName: 'Acciones', width: 200, renderCell: (params) => {
+        field: 'action', headerName: 'Acciones', width: 300, renderCell: (params) => {
             return (
                 <div className='cellAction d-flex text-center'>
-                    <div className='editButton'><a href="#" onClick={(e) => { e.preventDefault(); handleOpen(params.row.id) }}><CreateIcon /></a></div>
-                    <div className='DeleteButton ms-3'><a href="#" onClick={(e) => { e.preventDefault(); deleteUserHandling(params.row.id) }}><DeleteIcon /></a></div>
+                    <div className='editButton'><button type="button" className='btn btn-primary' onClick={(e) => { e.preventDefault(); handleOpen(params.row.id) }}><CreateIcon /></button></div>
+                    <div className='DeleteButton ms-3'><button type="button" className='btn btn-primary' onClick={(e) => { e.preventDefault(); deleteUserHandling(params.row.id) }}><DeleteIcon /></button></div>
                 </div>
             )
         }

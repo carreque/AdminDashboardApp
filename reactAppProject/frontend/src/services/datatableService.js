@@ -3,11 +3,11 @@ import axios from "axios";
 const baseURL = process.env.REACT_APP_BASE_URL;
 
 export const columnsProducts = [
-    { field: 'id', headerName: 'ID', width: 130 },
+    { field: 'id', headerName: 'ID', width: 200 },
     {
         field: 'name',
         headerName: 'Nombre',
-        width: 130,
+        width: 250,
         renderCell: (params) => {
             return (
                 <div>
@@ -19,26 +19,26 @@ export const columnsProducts = [
             )
         }
     },
-    { field: 'tipo', headerName: 'Tipo', width: 130 },
+    { field: 'tipo', headerName: 'Tipo', width: 180 },
     {
         field: 'precio_racion',
         headerName: 'Precio_ración',
-        width: 130,
+        width: 180,
     },
     {
         field: 'precio_bebida',
         headerName: 'Precio_bebida',
-        width: 130,
+        width: 180,
     },
     {
         field: 'IVA',
         headerName: 'IVA',
-        width: 130,
+        width: 180,
     },
     {
         field: 'Cocina',
         headerName: 'Cocina',
-        width: 130,
+        width: 180,
         renderCell: (params) => {
 
             return (
@@ -51,7 +51,7 @@ export const columnsProducts = [
     {
         field: 'Activado',
         headerName: 'Activado',
-        width: 130,
+        width: 200,
         renderCell: (params) => {
 
             return (
@@ -91,7 +91,7 @@ export const hiddeProduct = (id) => {
 
 //Usuarios
 export const columnsUsers = [
-    { field: 'id', headerName: 'ID', width: 130 },
+    { field: 'id', headerName: 'ID', width: 300 },
     {
         field: 'name',
         headerName: 'Nombre',
@@ -111,7 +111,7 @@ export const columnsUsers = [
     {
         field: 'rol',
         headerName: 'Rol',
-        width: 200,
+        width: 300,
         renderCell: (params) => {
 
             return (
@@ -139,32 +139,32 @@ export const columnsBills = [
     { 
         field: 'id', 
         headerName: 'ID', 
-        width: 130 
+        width: 250 
     },
     {
         field: 'Referencia',
         headerName: 'Referencia',
-        width: 130
+        width: 250
     },
     { 
         field: 'id_mesa', 
         headerName: 'Mesa',
-        width: 130 
+        width: 250 
     },
     {
         field: 'total_base',
         headerName: 'total_base',
-        width: 130,
+        width: 250,
     },
     {
         field: 'total',
         headerName: 'total',
-        width: 130,
+        width: 250,
     },
     {
         field: 'created_at',
         headerName: 'Fecha',
-        width: 130,
+        width: 250,
         renderCell: (params) => {
             const element = String(params.formattedValue)
             return (
@@ -193,22 +193,22 @@ export const columnsTables = [
     { 
         field: 'id', 
         headerName: 'ID', 
-        width: 130 
+        width: 300 
     },
     { 
         field: 'name', 
         headerName: 'Nombre', 
-        width: 130 
+        width: 300 
     },
     { 
         field: 'comensales', 
         headerName: 'Comensales', 
-        width: 130 
+        width: 300 
     },
     { 
         field: 'activa', 
         headerName: 'Activa', 
-        width: 130,
+        width: 300,
         renderCell: (params) => {
 
             return (
@@ -221,7 +221,7 @@ export const columnsTables = [
     { 
         field: 'estado', 
         headerName: 'Estado', 
-        width: 130,
+        width: 300,
         renderCell: (params) => {
 
             return (

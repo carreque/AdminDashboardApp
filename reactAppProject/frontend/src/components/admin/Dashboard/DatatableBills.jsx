@@ -8,17 +8,18 @@ import { Link } from 'react-router-dom';
 
 export const DatatableBills = ({numRows, Rows}) => {
 
+    
     const actionColunm = [{
-        field: 'action', headerName: 'Acciones', width: 130, renderCell: (params) => {
+        field: 'action', headerName: 'Acciones', width: 250, renderCell: (params) => {
             return (
                 <div className='cellAction d-flex'>
-                    <div className='editButton'><Link to={"orderBills"} state={{idBill: params.row.id}}><CreateIcon /></Link></div>
-                    <div className='DeleteButton ms-3'><a href="#" onClick={(e) => { e.preventDefault(); handleDeleteBill(params.row.id) }}><DeleteIcon /></a></div>
+                    <div className='editButton'><Link to={"orderBills"} state={{idBill: params.row.id}}><button type="button" className='btn btn-primary'><CreateIcon /></button></Link></div>
+                    <div className='DeleteButton ms-3'><button type="button" className="btn btn-primary" onClick={(e) => {e.preventDefault(); handleDeleteBill(params.row.id)}}><DeleteIcon /></button></div>
                 </div>
             )
         }
     }];
-
+   
     const handleDeleteBill = (id) => {
 
         swal({

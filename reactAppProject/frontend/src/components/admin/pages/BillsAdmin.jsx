@@ -111,7 +111,7 @@ export const BillsAdmin = () => {
                 <Navbar/>
                 <div className='col-12 d-flex'>
                     <div className="col-6 d-flex p-4">
-                        <label className="form-label">Número de Páginas: </label>
+                        <label className="form-label p-1">Número de Páginas: </label>
                         <select className='form-control ms-3 text-center inputBills' id="filterBillsPages" onChange={(e) => handleChangePages(e)}>
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -120,7 +120,7 @@ export const BillsAdmin = () => {
                             <option value="50">50</option>
                         </select>
                     </div>
-                    <div className="col-6 text-end p-2">
+                    <div className="col-6 text-end p-4">
                         <button className="btn btn-primary me-5 buttonBills" id="dateFiltrado" onClick={handleOpen}>Filtrar</button>
                     </div>
                 </div>

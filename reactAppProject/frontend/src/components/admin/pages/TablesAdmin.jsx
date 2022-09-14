@@ -86,10 +86,10 @@ export const TablesAdmin = () => {
                         </div>
                         <div className="col-12 d-flex">
                             <div className="col-6 p-3">
-                                <input type="text" className="form-control text-center" name="name" onChange={handleNewData}/>
+                                <input type="text" className="form-control text-center rounded-pill" name="name" onChange={handleNewData}/>
                             </div>
                             <div className="col-6 p-3">
-                                <select className="form-control text-center" name="estado" onChange={handleNewData}>
+                                <select className="form-control text-center rounded-pill" name="estado" onChange={handleNewData}>
                                     <option value={0}>Desactivada</option>
                                     <option value={1}>Activada</option>
                                 </select>
@@ -105,18 +105,18 @@ export const TablesAdmin = () => {
                         </div>
                         <div className="col-12 d-flex">
                             <div className="col-6 text-center p-3">
-                                <select className="form-control text-center" name="activa" onChange={handleNewData}>
+                                <select className="form-control text-center rounded-pill" name="activa" onChange={handleNewData}>
                                     <option value={0}>Desocupada</option>
                                     <option value={1}>Ocupada</option>
                                 </select>
                             </div>
                             <div className="col-6 text-center p-3">
-                                <input type="number" className="form-control text-center" name="comensales" onChange={handleNewData}/>
+                                <input type="number" className="form-control text-center rounded-pill" name="comensales" onChange={handleNewData}/>
                             </div>
                         </div>
                         <div className="col-12 text-center mt-3">
-                            <button className="btn btn-primary">Enviar</button>
-                            <button type="button" className="btn btn-secondary ms-3" onClick={handleClose}>Cerrar</button>
+                            <button className="btn btn-primary rounded-pill">Enviar</button>
+                            <button type="button" className="btn btn-secondary ms-3 rounded-pill" onClick={handleClose}>Cerrar</button>
                         </div>
                     </form>
                 </Box>
@@ -127,7 +127,7 @@ export const TablesAdmin = () => {
                 <div>
                     <div className="col-12 d-flex">
                         <div className="col-6 d-flex p-3">
-                            <label className="form-label">Número de Páginas: </label>
+                            <label className="form-label p-1">Número de Páginas: </label>
                             <select className='form-control ms-3 text-center inputBills' id="filterBillsPages" onChange={(e) => handleChangePages(e)}>
                                 <option value="5">5</option>
                                 <option value="10">10</option>
@@ -137,7 +137,7 @@ export const TablesAdmin = () => {
                             </select>
                         </div>
                         <div className="col-6 text-end p-3">
-                            <button className="btn btn-primary" onClick={handleOpen}>Crear</button>
+                            <button className="btn btn-primary" id="createTableButton" onClick={handleOpen}>Crear</button>
                         </div>
                     </div>
                     <DatatableMesas Rows={tables} numRows={numRows}/>

@@ -176,10 +176,10 @@ export const DatatableMesas = ({numRows, Rows}) => {
                         </div>
                         <div className="col-12 d-flex">
                             <div className="col-6 p-3">
-                                <input type="text" className="form-control text-center" name="name" value={dataTableValues.name} onChange={handleNewEditionData}/>
+                                <input type="text" className="form-control text-center rounded-pill" name="name" value={dataTableValues.name} onChange={handleNewEditionData}/>
                             </div>
                             <div className="col-6 p-3">
-                                <select className="form-control text-center" name="estado" value={dataTableValues.estado} onChange={handleNewEditionData}>
+                                <select className="form-control text-center rounded-pill" name="estado" value={dataTableValues.estado} onChange={handleNewEditionData}>
                                     <option value={0}>Desactivada</option>
                                     <option value={1}>Activada</option>
                                 </select>
@@ -195,18 +195,18 @@ export const DatatableMesas = ({numRows, Rows}) => {
                         </div>
                         <div className="col-12 d-flex">
                             <div className="col-6 text-center p-3">
-                                <select className="form-control text-center" name="activa" value={dataTableValues.activa} onChange={handleNewEditionData}>
+                                <select className="form-control text-center rounded-pill" name="activa" value={dataTableValues.activa} onChange={handleNewEditionData}>
                                     <option value={0}>Desocupada</option>
                                     <option value={1}>Ocupada</option>
                                 </select>
                             </div>
                             <div className="col-6 text-center p-3">
-                                <input type="number" className="form-control text-center" name="comensales" value={dataTableValues.comensales} onChange={handleNewEditionData}/>
+                                <input type="number" className="form-control text-center rounded-pill" name="comensales" value={dataTableValues.comensales} onChange={handleNewEditionData}/>
                             </div>
                         </div>
                         <div className="col-12 text-center mt-3">
-                            <button className="btn btn-primary">Enviar</button>
-                            <button type="button" className="btn btn-secondary ms-3" onClick={handleClose}>Cerrar</button>
+                            <button className="btn btn-primary rounded-pill">Enviar</button>
+                            <button type="button" className="btn btn-secondary ms-3 rounded-pill" onClick={handleClose}>Cerrar</button>
                         </div>
                     </form>
                 </Box>
